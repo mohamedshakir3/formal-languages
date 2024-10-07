@@ -6,7 +6,6 @@
     <title>Jenkins Build Status</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #1a1f2e;">
-    <!-- MSO conditional comments for Outlook -->
     <!--[if mso]>
     <table width="800" cellpadding="0" cellspacing="0" border="0" style="width:800px;">
     <tr><td>
@@ -116,6 +115,123 @@
                                     </td>
                                 </tr>
                             </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Failure Details Section -->
+        <tr style="${buildResult != 'SUCCESS' ? '' : 'display: none;'}">
+            <td style="padding: 24px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #242938;">
+                    <tr>
+                        <td style="padding: 24px; border-radius: 16px;">
+                            <div style="color: #ff4d6b; font-size: 16px; margin-bottom: 16px; font-family: Arial, sans-serif;">
+                                Failure Details
+                            </div>
+                            <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                                <tr>
+                                    <td style="width: 33%; padding-right: 16px;">
+                                        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #1a1f2e;">
+                                            <tr>
+                                                <td style="padding: 16px; border-radius: 12px;">
+                                                    <div style="color: #8b92a5; font-size: 14px; margin-bottom: 8px; font-family: Arial, sans-serif;">
+                                                        Failed Tests
+                                                    </div>
+                                                    <div style="color: #ff4d6b; font-size: 24px; font-family: Arial, sans-serif;">
+                                                        ${failedTests}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="width: 33%; padding-right: 16px;">
+                                        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #1a1f2e;">
+                                            <tr>
+                                                <td style="padding: 16px; border-radius: 12px;">
+                                                    <div style="color: #8b92a5; font-size: 14px; margin-bottom: 8px; font-family: Arial, sans-serif;">
+                                                        Error Type
+                                                    </div>
+                                                    <div style="color: #ffffff; font-size: 14px; font-family: Arial, sans-serif;">
+                                                        ${errorType}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="width: 33%;">
+                                        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #1a1f2e;">
+                                            <tr>
+                                                <td style="padding: 16px; border-radius: 12px;">
+                                                    <div style="color: #8b92a5; font-size: 14px; margin-bottom: 8px; font-family: Arial, sans-serif;">
+                                                        Stack Trace
+                                                    </div>
+                                                    <div style="color: #8b92a5; font-family: monospace; font-size: 12px; white-space: pre-wrap;">
+                                                        ${stackTrace}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Artifacts Section -->
+        <tr style="${hasArtifacts ? '' : 'display: none;'}">
+            <td style="padding: 0 24px 24px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; background-color: #242938;">
+                    <tr>
+                        <td style="padding: 24px; border-radius: 16px;">
+                            <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                                <tr>
+                                    <td style="width: 48px; vertical-align: top;">
+                                        <img alt="files" src="${filesIconUrl}" style="width: 48px; display: block;">
+                                    </td>
+                                    <td style="padding-left: 24px; vertical-align: top;">
+                                        <div style="color: #8b92a5; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: Arial, sans-serif;">
+                                            App Files
+                                        </div>
+                                        <div style="color: #ffffff; font-size: 18px; margin-top: 8px; font-family: Arial, sans-serif;">
+                                            Ready to download & install
+                                        </div>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <table cellpadding="0" cellspacing="0" border="0" style="margin-left: auto;">
+                                            <tr>
+                                                <td style="background-color: #4f46e5; border-radius: 12px;">
+                                                    <a href="${downloadUrl}" style="display: block; color: white; text-decoration: none; padding: 12px 24px; font-size: 14px; font-family: Arial, sans-serif;">
+                                                        Download
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Footer Section -->
+        <tr>
+            <td style="padding: 24px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div style="color: #8b92a5; font-size: 12px; letter-spacing: 1px; font-family: Arial, sans-serif;">
+                                Provided by Jenkins
+                            </div>
+                        </td>
+                        <td style="text-align: right;">
+                            <a href="${jenkinsUrl}" style="color: #4f46e5; text-decoration: none; font-size: 14px; font-family: Arial, sans-serif;">View in Jenkins →</a>
                         </td>
                     </tr>
                 </table>
